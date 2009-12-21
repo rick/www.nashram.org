@@ -1,0 +1,10 @@
+SITE.rsync_args = %w(-av --progress --rsh='ssh -l eastcore') 
+SITE.user = 'eastcore'
+SITE.host = 'www.nashram.org'
+SITE.remote_dir = '/home/eastcore/sites/nashram/www/html'
+
+task :default => :build
+desc 'deploy the site to the webserver'
+task :deploy => [:build, 'deploy:rsync']
+
+# EOF
